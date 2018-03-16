@@ -29,8 +29,8 @@ private:
 	std::vector<float> datalist;
 
 	void NormalizeDatalist();
-	void GetTrajectoryMatrix();
-	void GetTestMatrix();
+	MatrixXf GetTrajectoryMatrix(int step);
+	MatrixXf GetTestMatrix(int step);
 
 };
 

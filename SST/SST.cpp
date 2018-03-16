@@ -9,8 +9,11 @@
 #define EIGEN_MPL2_ONLY // LGPLライセンスのコードを使わない．
 
 #include <Eigen/Core>
+#include <Eigen/SVD>
 #include "SST.h"
 #include <iostream>
+
+using namespace Eigen;
 
 #pragma region Constructor and Destructor
 
@@ -59,6 +62,26 @@ float SST::GetScore()
 float SST::GetFormerScore(int step)
 {
 	// 変化度を計算. step=0で最新, step=iでi個前の変化値
+	if (this->minlength > this->datalist.size() - step)
+	{
+		// datalistの長さが足りない
+		return 0.0f;
+	}
+
+	// 履歴行列とテスト行列の取得
+	MatrixXf Tr = this->GetTrajectoryMatrix(step);
+	MatrixXf Te = this->GetTestMatrix(step);
+
+	// 履歴行列とテスト行列の左特異ベクトル
+	JacobiSVD<MatrixXf> svd(Tr, ComputeThinU | ComputeThinV);
+	MatrixXf Utr = svd.matrixU();
+	JacobiSVD<MatrixXf> svd(Te, ComputeThinU | ComputeThinV);
+	MatrixXf Ute = svd.matrixU();
+
+	// todo: Utrからr本, Uteからm本ベクトルを取り出す
+
+	// 変化度算出
+
 	return 0.0f;
 }
 
@@ -77,20 +100,20 @@ void SST::NormalizeDatalist()
 	}
 }
 
-void SST::GetTrajectoryMatrix()
+MatrixXf SST::GetTestMatrix(int step)
 {
-	// Todo
-	// return typeをvoidから適切な型に変える
+	int index = this->datalist.size() - 1 - step - this->k - this->width + 2;
+	MatrixXf mat = Map<MatrixXf, 0, OuterStride<>>(&(this->datalist[index]), Index(this->width), Index(this->k), OuterStride<>(1));
+	return mat;
 }
 
-void SST::GetTestMatrix()
+MatrixXf SST::GetTrajectoryMatrix(int step)
 {
-	// Todo
-	// return typeをvoidから適切な型に変える
+	int index = this->datalist.size() - 1 - step - this->lag - this->n - this->width + 2;
+	MatrixXf mat = Map<MatrixXf, 0, OuterStride<>>(&(this->datalist[index]), Index(this->width), Index(this->n), OuterStride<>(1));
+	return mat;
 }
-
 #pragma endregion
-
 
 
 

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSTLogger", "SSTLogger\SSTL
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SST", "SST\SST.vcxproj", "{D490A756-9C0D-4877-85CD-27BE6859DE30}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SSTWrapper", "SSTWrapper\SSTWrapper.vcxproj", "{25E18DED-1D82-4153-B54E-80753F9D45DC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,16 +39,6 @@ Global
 		{D490A756-9C0D-4877-85CD-27BE6859DE30}.Release|x64.Build.0 = Release|x64
 		{D490A756-9C0D-4877-85CD-27BE6859DE30}.Release|x86.ActiveCfg = Release|Win32
 		{D490A756-9C0D-4877-85CD-27BE6859DE30}.Release|x86.Build.0 = Release|Win32
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Debug|x64.ActiveCfg = Debug|x64
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Debug|x64.Build.0 = Debug|x64
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Debug|x86.ActiveCfg = Debug|Win32
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Debug|x86.Build.0 = Debug|Win32
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Release|Any CPU.ActiveCfg = Release|Win32
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Release|x64.ActiveCfg = Release|x64
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Release|x64.Build.0 = Release|x64
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Release|x86.ActiveCfg = Release|Win32
-		{25E18DED-1D82-4153-B54E-80753F9D45DC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
