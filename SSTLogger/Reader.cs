@@ -11,20 +11,20 @@ namespace SSTLogger
 
         public Reader()
         {
-            timer = new Timer();
+            this.timer = new Timer();
             this.rnd = new Random();
         }
 
         public void StartTimer()
         {
-            timer.Tick += new EventHandler(this.OnTimerTick);
-            timer.Interval = 100;
-            timer.Enabled = true;
+            this.timer.Tick += new EventHandler(this.OnTimerTick);
+            this.timer.Interval = 100;
+            this.timer.Enabled = true;
         }
 
         public void SetReadEvent(ReadedEventHandler handle)
         {
-            Readed += handle;
+            this.Readed += handle;
         }
 
         private void OnTimerTick(object sender, EventArgs e)
