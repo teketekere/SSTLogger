@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using SSTonCpp;
 
 namespace SSTLogger
 {
@@ -8,11 +10,13 @@ namespace SSTLogger
         private Timer timer;
         public event ReadedEventHandler Readed;
         private Random rnd;
+        private SSTWrapper sst;
 
         public Reader()
         {
             this.timer = new Timer();
             this.rnd = new Random();
+            sst = new SSTWrapper();
         }
 
         public void StartTimer()
@@ -49,7 +53,8 @@ namespace SSTLogger
         private double GetRowdata()
         {
             // dummy
-            return this.rnd.NextDouble();
+            double row = this.rnd.NextDouble();
+            return row;
         }
 
         private double GetChanges()

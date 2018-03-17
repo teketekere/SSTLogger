@@ -48,7 +48,6 @@ class SST(object):
     def calcScore(self, X, Z):
         # U, _, _ = svds(X, k=2, return_singular_vectors="u")
         Ux, _, _ = linalg.svd(X, full_matrices=False)
-        print(Ux.shape)
         Ux = Ux[:, :self.r]
         Uz, _, _ = linalg.svd(Z, full_matrices=False)
         Uz = Uz[:, :self.m]
